@@ -1,0 +1,28 @@
+# Get employee information
+employee_name = input("Enter the employee's name: ")
+total_value = float(input("Enter the total dollar value of transactions: "))
+num_transactions = int(input("Enter the number of transactions: "))
+num_shifts = int(input("Enter the number of shifts worked: "))
+
+# Calculate productivity score
+if num_transactions > 0 and num_shifts > 0:
+    productivity_score = (total_value / num_transactions) / num_shifts
+else:
+    print("Number of transactions and shifts must be greater than zero.")
+    exit()
+
+# Initialize bonus variable
+bonus = 0.00
+
+# Determine bonus based on productivity score
+if productivity_score <= 30:
+    bonus = 50.00
+elif 31 <= productivity_score <= 69:
+    bonus = 75.00
+elif 70 <= productivity_score <= 199:
+    bonus = 100.00
+else:  # productivity_score >= 200
+    bonus = 200.00
+
+# Output the employee's name and bonus
+print("The bonus for " + employee_name + " is $" + str(bonus))
